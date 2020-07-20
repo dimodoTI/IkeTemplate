@@ -9,6 +9,9 @@ import {
 import {
     store
 } from "../../redux/store";
+import {
+    isInLayout
+} from "../../redux/screens/screenLayouts";
 
 
 const MEDIA_CHANGE = "ui.media.timeStamp"
@@ -149,8 +152,8 @@ export class greenDashboard extends connect(store, MEDIA_CHANGE, SCREEN)(LitElem
         if ((name == SCREEN || name == MEDIA_CHANGE)) {
             this.mediaSize = state.ui.media.size
             this.hidden = true
-            const haveBodyArea = state.screen.layouts[this.mediaSize].areas.find(a => a == this.area)
-            if (haveBodyArea && "cardA-cardB-cardC-cardD".indexOf(state.screen.name) != -1) {
+            //const haveBodyArea = state.screen.layouts[this.mediaSize].areas.find(a => a == this.area)
+            if (isInLayout(state, this.area) && "cardA-cardB-cardC-cardD".indexOf(state.screen.name) != -1) {
                 this.hidden = false
                 this.current = state.screen.name
             }

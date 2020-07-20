@@ -23,6 +23,9 @@ import {
 import {
     greenDashboard
 } from "./bodies/greenDashboard"
+import {
+    getLayout
+} from "../redux/screens/screenLayouts";
 
 
 const MEDIA_CHANGE = "ui.media.timeStamp"
@@ -67,7 +70,7 @@ export class viewManager extends connect(store, MEDIA_CHANGE, SCREEN)(LitElement
     stateChanged(state, name) {
         if ((name == MEDIA_CHANGE || name == SCREEN)) {
             this.mediaSize = state.ui.media.size
-            this.layout = state.screen.layouts[this.mediaSize].name
+            this.layout = getLayout(state).name
         }
 
         this.update();

@@ -9,6 +9,9 @@ import {
 import {
     store
 } from "../../redux/store";
+import {
+    isInLayout
+} from "../../redux/screens/screenLayouts";
 
 
 const MEDIA_CHANGE = "ui.media.timeStamp"
@@ -46,7 +49,7 @@ export class redFoot extends connect(store, MEDIA_CHANGE, SCREEN)(LitElement) {
         if ((name == SCREEN || name == MEDIA_CHANGE)) {
             this.mediaSize = state.ui.media.size
             this.hidden = true
-            if (state.screen.layouts[this.mediaSize].areas.find(a => a == this.area)) {
+            if (isInLayout(state, this.area)) {
                 this.hidden = false
             }
             this.update();

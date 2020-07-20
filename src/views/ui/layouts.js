@@ -56,7 +56,6 @@ export const layoutsCSS = css `
     }
     .body{
         grid-area:body
-        
     }
     .foot{
         grid-area:foot
