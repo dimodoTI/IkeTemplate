@@ -14,10 +14,15 @@ import {
 import {
     captureMedia
 } from "./redux/ui/actions";
+import {
+    goToNode
+} from "./redux/routing/actions"
 
 
 
 store.dispatch(captureMedia())
+
+store.dispatch(goToNode("3"))
 /* 
 
 const largeScreenRoute = [

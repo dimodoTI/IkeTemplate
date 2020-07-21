@@ -52,17 +52,13 @@ export class blueHeader extends connect(store, MEDIA_CHANGE, SCREEN)(LitElement)
     }
     render() {
         return html `
-                <input type="button" @click="${this.atras}" style="height:2rem" value="Atras">
-                <input type="button" @click="${this.adelante}" style="height:2rem" value="Adelante">
-                ${store.getState().screen.name}
+            <input type="button" @click="${this.atras}" style="height:2rem" value="Atras">
+            <input type="button" @click="${this.adelante}" style="height:2rem" value="Adelante">
+            ${store.getState().screen.name}
         `
     }
 
-    firstUpdated(changedProperties) {
 
-        store.dispatch(showScreen("splash", ""))
-
-    }
 
     adelante() {
         /* this.current += 1
