@@ -22,25 +22,19 @@ import {
 
 store.dispatch(captureMedia())
 
-store.dispatch(goToNode("3"))
+//store.dispatch(goToNode("3"))
 /* 
 
 const largeScreenRoute = [
     "1      -opcion 1",
     "2      -opcion 2",
-    "3      -opcion 3",
     "3/1    -opcion 31",
-    "3/1/1  -opcion 311",
-    "3/1/2  -opcion 312",
-    "3/1/2/1-opcion 3121",
-    "3/1/3  -opcion 313",
     "3/2    -opcion 32",
-    "3/2/1  -opcion 321",
-    "3/2/2  -opcion 322",
-    "3/3    -opcion 33",
-    "3/3/1  -opcion 331",
-    "4      -opcion 4",
-    "5      -opcion 5",
+    "3/2/1  -opcion 331",
+    "3/3/2  -opcion 331",
+    "4/1    -opcion 41",
+    "4/2    -opcion 42",
+    "4/3    -opcion 43",
     "5/1    -opcion 51",
     "6      -opcion 6",
     "6/1    -opcion 61"
@@ -56,9 +50,9 @@ const isBrother = (codeA, codeB) => {
     elementsCodeB.pop()
     return elementsCodeA.join() == elementsCodeB.join()
 }
+
 const isParent = (currentCode, prevCode) => {
-    const tail = currentCode.trim().replace(prevCode.trim(), "").split("/")
-    return tail.length == 2 && tail[0] == ""
+    return currentCode.trim().split("/").length - 1 == prevCode.trim().split("/").length
 }
 
 const next = (pointer) => {
@@ -92,12 +86,19 @@ const goTo = (option) => {
 }
 
 console.log("test Next")
-pointer = goTo("opcion 1")
+pointer = goTo("opcion 32")
 console.log(largeScreenRoute[pointer])
-pointer = next(pointer)
+pointer = prev(pointer)
 console.log(largeScreenRoute[pointer])
-pointer = next(pointer)
-pointer = goTo("opcion 31")
+pointer = prev(pointer)
+console.log(largeScreenRoute[pointer])
+pointer = goTo("opcion 41")
+console.log(largeScreenRoute[pointer])
+pointer = prev(pointer)
+console.log(largeScreenRoute[pointer])
+pointer = prev(pointer)
+console.log(largeScreenRoute[pointer]) */
+/* pointer = goTo("opcion 31")
 console.log(largeScreenRoute[pointer])
 pointer = next(pointer)
 console.log(largeScreenRoute[pointer])
